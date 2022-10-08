@@ -1,5 +1,6 @@
-# Instruction-Tuned-Clinical-Notes-Scoring
+CS 7641 Team 1 - Instruction-Tuned-Clinical-Notes-Scoring
 
+Mehul Soni, Saksham Arora, Samaksh Gulati, Sindhu Raghuram Panyam
 
 ## Introduction
 Our problem statement and methodology is  primarily driven by the advances in NLP that have created significant impact in healthcare for both patients and physicians.
