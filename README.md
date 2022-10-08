@@ -29,8 +29,9 @@ The dataset presents a corpus of 43,985 clinical patient notes (PNs) written by 
 <img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://user-images.githubusercontent.com/65465058/194675093-ab31dfe7-240f-4d50-9e4b-aa249b7c9d61.png">
 ](url) -->
 
+
 [
-<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/label.png?token=GHSAT0AAAAAABZV3HB7XANMBBBMV6ELTK44Y2A6CZA">
+<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/label.png?token=GHSAT0AAAAAABXYALZXICI75RSZI3X6DCBAY2BADQQ">
 ](url)
 
 ## Problem Definition
