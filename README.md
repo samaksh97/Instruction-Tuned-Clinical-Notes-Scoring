@@ -19,14 +19,14 @@ Recently introduced instruction--tuned models have the potential to significantl
 
 The dataset presents a corpus of 43,985 clinical patient notes (PNs) written by 35,156 examinees during the high-stakes USMLE® Step 2 Clinical Skills examination.
 
-<!-- [
-<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="[https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/label.png?token=GHSAT0AAAAAABZOHZTDU4D7DVOQDBXKLJAQY2A5JMA](https://user-images.githubusercontent.com/65465058/194675093-ab31dfe7-240f-4d50-9e4b-aa249b7c9d61.png">
-](url) -->
-
 [
-<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/label.png?token=GHSAT0AAAAAABZV3HB7XANMBBBMV6ELTK44Y2A6CZA">
+<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="[https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/label.png?token=GHSAT0AAAAAABZOHZTDU4D7DVOQDBXKLJAQY2A5JMA](https://user-images.githubusercontent.com/65465058/194675093-ab31dfe7-240f-4d50-9e4b-aa249b7c9d61.png">
 ](url)
 
+<!-- [
+<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/label.png?token=GHSAT0AAAAAABZV3HB7XANMBBBMV6ELTK44Y2A6CZA">
+](url)
+ -->
 ## Problem Definition
 
 The goal of our project is to develop an automated way of identifying the semantically relevant features within each patient note, documenting standardized patient interviews. 
