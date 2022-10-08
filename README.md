@@ -1,6 +1,6 @@
 CS 7641 Team 1
 
-#Shreyas Verma, Saksham Arora, Mehul Soni, Samaksh Gulati, Sindhu Raghuram Panyam
+Shreyas Verma, Saksham Arora, Mehul Soni, Samaksh Gulati, Sindhu Raghuram Panyam
 
 ## Introduction
 Our problem statement and methodology is  primarily driven by the advances in NLP that have created significant impact in healthcare for both patients and physicians.
