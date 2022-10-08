@@ -8,6 +8,10 @@ CS 7641 Team 1
 
 Shreyas Verma, Saksham Arora, Mehul Soni, Samaksh Gulati, Sindhu Raghuram Panyam
 
+Gantt Chart: https://docs.google.com/spreadsheets/d/127ndniyh15_XrMLIP_JnUK5plsJSzKy0/edit?usp=sharing&ouid=105287803295740692275&rtpof=true&sd=true
+
+Proposal Video: https://drive.google.com/file/d/1Rn7oqu6s77t66SFFsS9U225rkypubJZz/view?usp=sharing
+
 ## Introduction
 Our problem statement and methodology is  primarily driven by the advances in NLP that have created significant impact in healthcare for both patients and physicians.
 With these guidelines, we narrowed down to a problem statement related to reducing the burden of conducting the United States Medical Licensing Examination taken by medical professionals each year. 
