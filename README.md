@@ -34,7 +34,7 @@ The goal of our project is to develop an automated way of identifying the semant
 When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup>  so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
 <!-- ![Tk-instruct](https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png| width=100) -->
 
-<img src="https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png" width="1000">
+<img src="https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png" width="500">
 <!-- 
 [
 <img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/Tk-instruct.png?token=GHSAT0AAAAAABZVW6OKZ45CSTR4OZ3LZBFWY2A5ULQ">
