@@ -13,10 +13,15 @@ Our problem statement and methodology is  primarily driven by the advances in NL
 With these guidelines, we narrowed down to a problem statement related to reducing the burden of conducting the United States Medical Licensing Examination taken by medical professionals each year. 
 
 One phase of this Examination, namely Step 2 Clinical Skills involves test-takers interacting with Standardized Patients (people trained to portray specific clinical cases) and writing  patient notes. Trained physician raters later scored patient notes with rubrics that outlined each case’s important concepts (referred to as features).
-Many techniques have been employed to tackle this problem statement. One such paper<sup>[6]</sup> tackles the task of domain specific passage matching by using a rule-based self-supervision objective for training Transformer language models.
 
 
-Upon extensive literature review, we realize that the following methodologies are interesting avenues that can be explored for our task :
+[
+<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/label.png?token=GHSAT0AAAAAABXYALZXICI75RSZI3X6DCBAY2BADQQ">
+](url)
+
+
+Many techniques have been employed to tackle this problem statement. One such paper<sup>[6]</sup> tackles the task of domain specific passage matching by using a rule-based self-supervision objective for training Transformer language models. Upon extensive literature review, we realize that the following methodologies are interesting avenues that can be explored for our task :
+
 1. <b>Effect of domain specific pretraining - </b>Large Language models, trained on general English corpus, might lead to an under-representation of domain-specific term embeddings in the corpus. Research in tweaking the pretraining phase focuses on task-adaptive pretraining of models like BERT using static word embeddings (fastText) in conjunction with different regularization techniques<sup>[3]</sup>, or framing subtasks<sup>[4]</sup> to explicitly learn the rare embeddings. Research in the fine-tuning phase has worked towards explaining rare words with paraphrases on the basis of prompt-based tuning techniques<sup>[5]</sup>. The former, albeit computationally expensive, is seemingly better - encouraging its use in representations of rare biomedical terminologies. 
 
 2. <b>Instruction based fine tuning - </b>Recent works in prompting techniques<sup>[1][2]</sup> have explored multi-task instruction-based fine tuning. They demonstrate that instruction tuned models have a great ability to generalize and can perform arduous generative tasks with ease. Using that idea as an inspiration we propose instruction based fine-tuning. 
@@ -30,9 +35,6 @@ The dataset presents a corpus of 43,985 clinical patient notes (PNs) written by 
 ](url) -->
 
 
-[
-<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/label.png?token=GHSAT0AAAAAABXYALZXICI75RSZI3X6DCBAY2BADQQ">
-](url)
 
 ## Problem Definition
 
