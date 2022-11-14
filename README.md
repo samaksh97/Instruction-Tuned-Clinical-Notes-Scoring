@@ -70,7 +70,7 @@ We used the following data preprocessing techniques
 
 
 
-<img src="https://user-images.githubusercontent.com/65465058/201564378-7d3a0d49-9139-476d-ab02-8844c8571424.png" width="500" height="300">
+<img src="https://user-images.githubusercontent.com/65465058/201565889-20929121-f57c-4774-8b36-7fbadf7ef5bf.png" width="500">
 
 ## Methods
 
