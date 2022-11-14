@@ -75,6 +75,10 @@ We used the following data preprocessing techniques
 
 When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup>  so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
 
+
+<img src="https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png" width="500">
+
+
 When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned T5 LLM so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
 
 At the outset, we began scoping different LLM models. However, while exploring different free cloud platform capabilities we realised that pretraining would not be feasible given the limitations of compute power. 
@@ -114,9 +118,6 @@ As next steps, we plan to compare our current model performance with GPT-3 and e
 
 ## Updates and Changes to Scope:
 As part of our evaluation of compute resources, we would not be going ahead with pre-training as previously planned.
-
-
-<img src="https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png" width="500">
 
 As stated in the data processing section, we have currently used a static example for all training inputs. In addition to the outputs of the model, we can extract the weights of the final layer that have been updated while training which can be reused.
 
