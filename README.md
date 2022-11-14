@@ -71,6 +71,8 @@ We used the following data preprocessing techniques
 ![alt text](https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/main/Pictures/Data_snippet.png)
 
 
+<img src="https://user-images.githubusercontent.com/65465058/201564378-7d3a0d49-9139-476d-ab02-8844c8571424.png" width="500">
+
 ## Methods
 
 When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup>  so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
@@ -86,7 +88,8 @@ At the outset, we began scoping different LLM models. However, while exploring d
 We have thus trained the T5 model with ~13000 instances. The parameters we have used in the model are as follows:
 
 
-![alt text](https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/6c06c9875d46fe1a91463ba8e109a02ca94a3b58/Pictures/Parameters%20-tkinstruct.png)
+<img src="https://user-images.githubusercontent.com/65465058/201564479-de72c6e0-15b1-4227-a0fc-c4726d074fde.png" width="500">
+
 
 
 As stated in the data processing section, we have currently used a static example for all training inputs. In addition to the outputs of the model, we can extract the weights of the final layer that have been updated while training which can be reused.
