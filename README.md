@@ -81,7 +81,9 @@ At the outset, we began scoping different LLM models. However, while exploring d
 
 We have thus trained the T5 model with ~13000 instances. The parameters we have used in the model are as follows:
 
----- Add photo 
+
+![alt text](https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/6c06c9875d46fe1a91463ba8e109a02ca94a3b58/Pictures/Parameters%20-tkinstruct.png)
+
 
 As stated in the data processing section, we have currently used a static example for all training inputs. In addition to the outputs of the model, we can extract the weights of the final layer that have been updated while training which can be reused.
 
