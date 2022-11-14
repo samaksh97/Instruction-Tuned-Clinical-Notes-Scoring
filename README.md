@@ -68,10 +68,9 @@ We used the following data preprocessing techniques
     80% - Training Set (11,400 Notes)
     20% - Testing Set (2,860 Notes)
 
-<!-- ![alt text](https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/main/Pictures/Data_snippet.png) -->
 
 
-<img src="https://user-images.githubusercontent.com/65465058/201564378-7d3a0d49-9139-476d-ab02-8844c8571424.png" width="500">
+<img src="https://user-images.githubusercontent.com/65465058/201564378-7d3a0d49-9139-476d-ab02-8844c8571424.png" width="500" height="300">
 
 ## Methods
 
