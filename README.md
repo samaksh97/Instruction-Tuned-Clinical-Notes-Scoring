@@ -14,6 +14,8 @@ Shreyas Verma, Saksham Arora, Mehul Soni, Samaksh Gulati, Sindhu Raghuram Panyam
 [Proposal Video](https://drive.google.com/file/d/1Rn7oqu6s77t66SFFsS9U225rkypubJZz/view?usp=sharing)
 
 ## Introduction
+Recently introduced instruction-paradigm empowers non-expert users to leverage NLP resources by defining a new task in natural language. Instruction-tuned models have the potential to significantly outperform task-specific language models (without instruction), but their effect has not yet been systematically studied in the healthcare domain. Also, Large Language models have been trained on a general English corpus and may not perform well on domain-specific domains which have a high proportion of rare words.
+
 Our problem statement and methodology is  primarily driven by the advances in NLP that have created significant impact in healthcare for both patients and physicians.
 With these guidelines, we narrowed down to a problem statement related to reducing the burden of conducting the United States Medical Licensing Examination taken by medical professionals each year. 
 
@@ -38,20 +40,83 @@ The dataset presents a corpus of 43,985 clinical patient notes (PNs) written by 
 
 
 
-
 ## Problem Definition
 
-The goal of our project is to develop an automated way of identifying the semantically relevant features within each patient note, documenting standardized patient interviews. 
+USMLE® Step 2 Clinical Skills examination is one of the most prestigious and rigorous medical licensure exams for medical professionals. The exam required test-takers to interact with Standardized Patients (people trained to portray specific clinical cases) and write a patient note. Trained physician raters later scored patient notes with rubrics that outlined each case’s important concepts (referred to as features). 
+
+The goal of the project is to extract substrings from the patient notes that are semantically closer to the feature at hand using an instruction-based learning of a pre-trained language model. From a project point of view, our goal is to study the different settings of instructional learning tasks (Instruction, Instruction+1 static example, Instruction + randomly sampled examples from a static pool) and compare results to identify optimal performance for our problem statement.
+
+
+## Data Definition
+
+The database presents a corpus of 43,985 clinical patient notes (PNs) written by 35,156 examinees during the high-stakes USMLE® Step 2 Clinical Skills examination. 
+In medical education, students are often assessed through encounters with standardised patients - people trained to portray simulated scenarios called clinical cases. For each such encounter, the student is expected to perform a history and physical examination, determine differential diagnoses, and then document their findings in a PN.  
+
+During this exam, each test taker sees a Standardised Patient, a person trained to portray a clinical case. After interacting with the patient, the test taker documents the relevant facts of the encounter in a patient note. Each patient note is scored by a trained physician who looks for the presence of certain key concepts or features relevant to the case as described in a rubric.
+
+Clinical Case: The scenario (e.g., symptoms, complaints, concerns) the Standardised Patient presents to the test taker (medical student, resident or physician). Ten clinical cases are represented in this dataset.
+Patient Note: Text detailing important information related by the patient during the encounter (physical exam and interview).
+Feature: A clinically relevant concept. A rubric describes the key concepts relevant to each case.
+
+
+## Data Processing
+We used the following data preprocessing techniques
+1. Created Input text using Patient Note and Feature
+2. Appended an Example to pass in  along with an instruction (See Below)  
+3. Added “No text found” for instances where feature was not found in Patient Note
+4. We randomly split the dataset (14,300 Notes) into train and test splits as follows:
+    80% - Training Set (11,400 Notes)
+    20% - Testing Set (2,860 Notes)
+
+![alt text](https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/main/Pictures/Data_snippet.png)
+
 
 ## Methods
+
 When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup>  so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
-<!-- ![Tk-instruct](https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png| width=100) -->
+
+When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned T5 LLM so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
+
+At the outset, we began scoping different LLM models. However, while exploring different free cloud platform capabilities we realised that pretraining would not be feasible given the limitations of compute power. 
+
+We have thus trained the T5 model with ~13000 instances. The parameters we have used in the model are as follows:
+
+---- Add photo 
+
+As stated in the data processing section, we have currently used a static example for all training inputs. In addition to the outputs of the model, we can extract the weights of the final layer that have been updated while training which can be reused.
+
+## Evaluation:
+As our task can be framed as a span detection task - where we extract a span of words from the patient note as output - we decided to use 2 primary metrics for our task.The Exact Match metric measures the percentage of predictions that match any one of the ground truth answers exactly. The F1 score metric is a loser metric measures the average overlap between the prediction and ground truth answer. These scores are calculated on every prompt-response pair. Overall EM and F1 scores are computed for a model by averaging over the individual example scores. 
+
+**Exact Match**:
+For each prompt-response pair, the value of Exact Match metric will be 1 when the characters of the model’s prediction and that of the ground truth match exactly. This metric is comparatively more conservative; if a match is not found, the value is assigned to be 0. A difference in one character would result in a score of 0. 
+
+**F1 Score**:
+This metric is utilized when equal weightage is assigned to precision and recall. In this case, an attempt is made to find a match between the words in the prediction and the ground truth. 
+
+We will be using a modified version of F1-score. This is because in our case we value recall more than precision. That is, it is important that in the output that the model gives us, the relevant feature text is present. However, we would not want to penalize the model as much for providing us with text in addition to the exact relevant phrase. Thus we will be using a Weighted F1-Score with greater emphasis on Recall rather than precision.
+
+Having examined the resulting metrics, we get -
+
+Tk-instruct small: 
+**Avg f1-score - 67.5%**
+**Avg Exact match score - 51.8%**
+
+From these results, it can be observed that a respectable F1 score has been obtained. This implies that our predictions are quite close to some of the True Answers. The results also suggest that there is an exact match found between the predictions and the ground truth to a certain extent. However, we can explore the potential for enhancing these scores by increasing the complexity of the model (using Tk-instruct base).
+
+## Potential Results and Discussions:
+As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score to evaluate the overlap of the predicted phrase spans with the span of the labels.
+
+## Plans Ahead 
+As next steps, we plan to compare our current model performance with GPT-3 and evaluate scope of improvement. One possible improvement could be in the example that we have provided. We will be testing out adding multiple/dynamic examples instead of the same static example for all instances. We might also use other models containing more parameters in case compute constraints allow us to do so. Finally, we plan to explore the use of topic modelling and patient notes segmentation to address this problem.
+
+## Updates and Changes to Scope:
+As part of our evaluation of compute resources, we would not be going ahead with pre-training as previously planned.
+
 
 <img src="https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png" width="500">
-<!-- 
-[
-<img width="813" alt="Screen Shot 2022-10-07 at 12 33 48 AM" src="https://raw.githubusercontent.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/main/Pictures/Tk-instruct.png?token=GHSAT0AAAAAABZVW6OKZ45CSTR4OZ3LZBFWY2A5ULQ">
-](url) -->
+
+As stated in the data processing section, we have currently used a static example for all training inputs. In addition to the outputs of the model, we can extract the weights of the final layer that have been updated while training which can be reused.
 
 ## Potential Results and Discussions
 As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use <b>micro-averaged F1 score</b> to evaluate the overlap of the predicted phrase spans with the label-spans.
