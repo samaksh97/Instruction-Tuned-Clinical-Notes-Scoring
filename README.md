@@ -74,20 +74,20 @@ We used the following data preprocessing techniques
 
 ## Methods
 
-### 1. Supervised Learning - Large Language Models
+When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. At the outset, we began scoping different LLM models. From the plethora of options that HuggingFace provides with, we played around with the inferencing APIs of different models like BERT,bioBERT and T5-variants. We realise the diverse variants of T5-based models offer specific LLMs that are tuned for instruction-based tasks and are thus bound to perform marginally better than their counterparts. Thus, for this project, we plan to test two variants of the Tk-INstruct model - 
+1. [Tk-Instruct Small](https://huggingface.co/allenai/tk-instruct-small-def-pos) - this is the smallest T5-based Instruction tuned model. The t5-small LLM has been tuned with intructional dataset consisting of a definition and 2 positive examples to create this fine-tuned LLM version. The model consists of 60million parameters and we chose to start with fine-tuning this first and then moving on to a bigger LLM for comparative analysis and benchmarking purposes.
+2. [Tk-Instruct Base](https://huggingface.co/allenai/tk-instruct-base-def-pos) - Similar to the above model, the only difference is that this model has been trained on t5-base model which is a 220 million parameter model.
 
-When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup>  so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
+Our inital plan was to  pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup> so that it learns the rare biomedical terms. The Masked Language Modelling (MLM) technique underlying pretrianing a large language model is a semi-supervised approach that would help the model learn the domain-specific vocabulary. 
+
 
 
 <img src="https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png" width="500">
 
 
-When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned T5 LLM so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
-
-At the outset, we began scoping different LLM models. However, while exploring different free cloud platform capabilities we realised that pretraining would not be feasible given the limitations of compute power. 
+Unfortunately, due to compute resource constraints, we are unable to proceed with this task. However, we do fine-tune it using Instructional prompts composed of a definition and a positive example. As the LLM is itself a base T5 model tuned specifically for inteructional tasks, we hypothesise that passing simple elaborate instructions should work well for our use case even without the pretraining step. Also, since the output is an extraction task and not a generation task, the model should be able to extract relevant output phrases from the patient notes even without learing the domain-specific medical vocabulary.
 
 We have thus trained the T5 model with ~13000 instances. The parameters we have used in the model are as follows:
-
 
 <img src="https://user-images.githubusercontent.com/65465058/201564479-de72c6e0-15b1-4227-a0fc-c4726d074fde.png" width="500">
 
@@ -95,7 +95,7 @@ We have thus trained the T5 model with ~13000 instances. The parameters we have 
 
 As stated in the data processing section, we have currently used a static example for all training inputs. In addition to the outputs of the model, we can extract the weights of the final layer that have been updated while training which can be reused.
 
-### Evaluation:
+## Evaluation:
 As our task can be framed as a span detection task - where we extract a span of words from the patient note as output - we decided to use 2 primary metrics for our task.The Exact Match metric measures the percentage of predictions that match any one of the ground truth answers exactly. The F1 score metric is a loser metric measures the average overlap between the prediction and ground truth answer. These scores are calculated on every prompt-response pair. Overall EM and F1 scores are computed for a model by averaging over the individual example scores. 
 
 **Exact Match**:
@@ -113,17 +113,6 @@ Tk-instruct small:
 **Avg Exact match score - 51.8%**
 
 From these results, it can be observed that a respectable F1 score has been obtained. This implies that our predictions are quite close to some of the True Answers. The results also suggest that there is an exact match found between the predictions and the ground truth to a certain extent. However, we can explore the potential for enhancing these scores by increasing the complexity of the model (using Tk-instruct base).
-
-### 2. Unsupervised Analysis - Topic Modeling
-
-#### Background and Objective:
-Medical Texts often contain a large amount of information pertaining to patient history, dated information, diagnosis and treatment records which are of high importance in decision making for doctors and other stakeholders in the healthcare ecosystem.
-In the supervised learning approach discussed above, we deal with the patient history notes and automatically extract features using large language models. However, we can also often gain some useful insights from such data while solving the main objective which we focus on in this part of the project. We leverage an unsupervised technique based on Topic modeling, Latent Dirichlet allocation to analyze and compare the content of clinical notes.
-
-#### Approach
-
-#### Insights
-
 
 ## Potential Results and Discussions:
 As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score to evaluate the overlap of the predicted phrase spans with the span of the labels.
