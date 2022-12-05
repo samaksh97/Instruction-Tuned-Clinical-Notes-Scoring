@@ -118,7 +118,8 @@ For any modeling exercise, it is important for the textual data to be clean and 
 
 These steps involved tokenization and removal of stop words from the patient history notes. This was followed by creating a dictionary of  tokens from the data and a corpus of words in the text, using which we also calculated the term document frequency.
 
-Gensim creates a unique id for each word in the document. Its mapping of word_id and word_frequency. Below is an example of how we assign the frequency to the unique id of each word in every patient note:
+Gensim creates a unique id for each word in the document. Its mapping of word_id and word_frequency. Below is an example of how we assign the frequency to the unique id of each word in every patient note along with the corresponding words mapped to the IDs in this example:
+(0, 'abdominal'), (1, 'abusing'), (2, 'active'), (3, 'adderall'), (4, 'adderrall'), (5, 'ago'), (6, 'attcak'), (7, 'beating'), (8, 'bowel'), (9, 'breath'), (10, 'changes'), (11, 'chest'), (12, 'chills'), (13, 'college'), (14, 'conciousness'), (15, 'condoms'), (16, 'dad'), (17, 'date'), (18, 'days'), (19, 'denies'), (20, 'diaphoresis'), (21, 'disease'), (22, 'drinks'), (23, 'endorses'), (24, 'episode'), (25, 'episodes'), (26, 'fatigue'), (27, 'felt'), (28, 'fevers'), (29, 'fhx')
 
 <img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/a44ad0bf4df13f7b9b7298774ba019938ffad93e/Pictures/id2freq.png" width="500">
 
