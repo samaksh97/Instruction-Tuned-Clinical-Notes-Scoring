@@ -74,6 +74,7 @@ We used the following data preprocessing techniques
 
 ## Methods
 
+1. Supervised Learning - Large Language Models 
 When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. Here, we plan to first pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup>  so that it learns the rare biomedical terms. We will then fine-tune it using Instructional prompts composed of a definition and a positive example. 
 
 
@@ -111,6 +112,8 @@ Tk-instruct small:
 **Avg Exact match score - 51.8%**
 
 From these results, it can be observed that a respectable F1 score has been obtained. This implies that our predictions are quite close to some of the True Answers. The results also suggest that there is an exact match found between the predictions and the ground truth to a certain extent. However, we can explore the potential for enhancing these scores by increasing the complexity of the model (using Tk-instruct base).
+
+2. Unsupervised Analysis - Topic Modeling
 
 ## Potential Results and Discussions:
 As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score to evaluate the overlap of the predicted phrase spans with the span of the labels.
