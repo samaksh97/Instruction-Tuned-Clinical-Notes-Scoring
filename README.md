@@ -99,9 +99,24 @@ As stated in the data processing section, we have currently used a static exampl
 
 #### Background and Objective:
 Medical Texts often contain a large amount of information pertaining to patient history, dated information, diagnosis and treatment records which are of high importance in decision making for doctors and other stakeholders in the healthcare ecosystem.
+
 In the supervised learning approach discussed above, we deal with the patient history notes and automatically extract features using large language models. However, we can also often gain some useful insights from such data while solving the main objective which we focus on in this part of the project. We leverage an unsupervised technique based on Topic modeling, Latent Dirichlet allocation to analyze and compare the content of clinical notes.
 
+
 #### Approach
+
+Topic modeling is a statistical analysis technique often used for automatic identification of topics in large collections of documents. A topic model determines which topics each document refers to and which terms describe each topic. Thus, a topic model defines topics that are contained in the collection of text documents. In modeling objectives, this step also helps in data labeling needs using the topics generated across each set of similar documents.
+We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python.
+
+We followed the steps below to analyze our clinical notes corpus:
+Exploratory Data Analysis
+The starting point of the workflow involved making a word cloud to visually see what the most common words are in our texts and also to get a sense of the extent to which data pre-processing is required.
+Data Preprocessing
+For any modeling exercise, it is important for the textual data to be clean and of relevant input type to get the required results. Hence,we performed some pre-processing steps on the clinical notes before proceeding with the LDA topic model.
+These steps involved tokenization and removal of stop words from the patient history notes. This was followed by creating a dictionary of  tokens from the data and created a corpus of words in the text.
+
+LDA Model
+
 
 #### Insights
 
