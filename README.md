@@ -103,6 +103,11 @@ In the supervised learning approach discussed above, we deal with the patient hi
 
 #### Approach
 
+Topic modeling is a statistical analysis technique often used for automatic identification of topics in large collections of documents. A topic model determines which topics each document refers to and which terms describe each topic. Thus, a topic model defines topics that are contained in the collection of text documents. In modeling objectives, this step also helps in data labeling needs using the topics generated across each set of similar documents.
+
+We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python.
+
+
 #### Insights
 
 
