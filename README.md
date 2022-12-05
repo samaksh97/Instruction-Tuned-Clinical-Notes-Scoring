@@ -116,10 +116,13 @@ From these results, it can be observed that a respectable F1 score has been obta
 
 ### 2. Unsupervised Analysis - Topic Modeling
 
-#### Background
+#### Background and Objective:
 Medical Texts often contain a large amount of information pertaining to patient history, dated information, diagnosis and treatment records which are of high importance in decision making for doctors and other stakeholders in the healthcare ecosystem.
 In the supervised learning approach discussed above, we deal with the patient history notes and automatically extract features using large language models. However, we can also often gain some useful insights from such data while solving the main objective which we focus on in this part of the project. We leverage an unsupervised technique based on Topic modeling, Latent Dirichlet allocation to analyze and compare the content of clinical notes.
 
+#### Approach
+
+#### Insights
 
 
 ## Potential Results and Discussions:
