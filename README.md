@@ -103,11 +103,6 @@ In the supervised learning approach discussed above, we deal with the patient hi
 
 #### Approach
 
-Topic modeling is a statistical analysis technique often used for automatic identification of topics in large collections of documents. A topic model determines which topics each document refers to and which terms describe each topic. Thus, a topic model defines topics that are contained in the collection of text documents. In modeling objectives, this step also helps in data labeling needs using the topics generated across each set of similar documents.
-
-We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python.
-
-
 #### Insights
 
 
@@ -134,18 +129,8 @@ Having examined the resulting metrics, we get -
 From these results, it can be observed that a respectable F1 score has been obtained. This implies that our predictions are quite close to some of the True Answers. The results also suggest that there is an exact match found between the predictions and the ground truth to a certain extent. However, we can explore the potential for enhancing these scores by increasing the complexity of the model (using Tk-instruct base).
 
 ## Potential Results and Discussions:
-As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score to evaluate the overlap of the predicted phrase spans with the span of the labels.
+As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score and Exact Match score to evaluate the overlap of the predicted phrase spans with the span of the labels. As it can be seen in the table above, TK-instruct base model being a bigger model with 220 million parameters is better able to extract relevant phrases on mild fine tuning when compared to the TK-instruct small model.
 
-## Plans Ahead 
-As next steps, we plan to compare our current model performance with GPT-3 and evaluate scope of improvement. One possible improvement could be in the example that we have provided. We will be testing out adding multiple/dynamic examples instead of the same static example for all instances. We might also use other models containing more parameters in case compute constraints allow us to do so. Finally, we plan to explore the use of topic modelling and patient notes segmentation to address this problem.
-
-## Updates and Changes to Scope:
-As part of our evaluation of compute resources, we would not be going ahead with pre-training as previously planned.
-
-As stated in the data processing section, we have currently used a static example for all training inputs. In addition to the outputs of the model, we can extract the weights of the final layer that have been updated while training which can be reused.
-
-## Potential Results and Discussions
-As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use <b>micro-averaged F1 score</b> to evaluate the overlap of the predicted phrase spans with the label-spans.
 
 ## References
 1. Mihir Parmar, Swaroop Mishra, Mirali Purohit, Man Luo, Murad Mohammad, and Chitta Baral. 2022. In-BoXBART: Get Instructions into Biomedical Multi-Task Learning. In Findings of the Association for Computational Linguistics: NAACL 2022, pages 112–128, Seattle, United States. Association for Computational Linguistics.
