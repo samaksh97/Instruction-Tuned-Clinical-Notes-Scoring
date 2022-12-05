@@ -122,10 +122,11 @@ Gensim creates a unique id for each word in the document. Its mapping of word_id
 
 \[(0, 'abdominal'), (1, 'abusing'), (2, 'active'), (3, 'adderall'), (4, 'adderrall'), (5, 'ago'), (6, 'attcak'), (7, 'beating'), (8, 'bowel'), (9, 'breath'), (10, 'changes'), (11, 'chest'), (12, 'chills'), (13, 'college'), (14, 'conciousness'), (15, 'condoms'), (16, 'dad'), (17, 'date'), (18, 'days'), (19, 'denies'), (20, 'diaphoresis'), (21, 'disease'), (22, 'drinks'), (23, 'endorses'), (24, 'episode'), (25, 'episodes'), (26, 'fatigue'), (27, 'felt'), (28, 'fevers'), (29, 'fhx')]
 
-<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/a44ad0bf4df13f7b9b7298774ba019938ffad93e/Pictures/id2freq.png" width="500">
+\[(0, 1), (1, 1), (2, 1), (3, 1), (4, 2), (5, 1), (6, 1), (7, 1), (8, 1), (9, 1), (10, 3), (11, 2), (12, 1), (13, 1), (14, 1), (15, 1), (16, 1), (17, 1), (18, 1), (19, 2), (20, 1), (21, 1), (22, 1), (23, 3), (24, 1), (25, 1), (26, 1), (27, 1), (28, 1), (29, 1)]
 
 3. LDA Model
 
+The above list of tuples for each note is the pre-processed input that is fed into the LDA model.
 
 #### Insights
 
