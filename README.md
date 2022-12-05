@@ -110,10 +110,12 @@ Topic modeling is a statistical analysis technique often used for automatic iden
 We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python.
 
 We followed the steps below to analyze our clinical notes corpus:
-1. Exploratory Data Analysis
+1. Exploratory Data Analysis:
+
 The starting point of the workflow involved making a word cloud to visually see what the most common words are in our texts and also to get a sense of the extent to which data pre-processing is required.
 
-2. Data Preprocessing
+2. Data Preprocessing:
+
 For any modeling exercise, it is important for the textual data to be clean and of relevant input type to get the required results. Hence,we performed some pre-processing steps on the clinical notes before proceeding with the LDA topic model.
 
 These steps involved tokenization and removal of stop words from the patient history notes. This was followed by creating a dictionary of  tokens from the data and a corpus of words in the text, using which we also calculated the term document frequency.
