@@ -99,14 +99,9 @@ As stated in the data processing section, we have currently used a static exampl
 
 #### Background and Objective:
 Medical Texts often contain a large amount of information pertaining to patient history, dated information, diagnosis and treatment records which are of high importance in decision making for doctors and other stakeholders in the healthcare ecosystem.
-
 In the supervised learning approach discussed above, we deal with the patient history notes and automatically extract features using large language models. However, we can also often gain some useful insights from such data while solving the main objective which we focus on in this part of the project. We leverage an unsupervised technique based on Topic modeling, Latent Dirichlet allocation to analyze and compare the content of clinical notes.
 
 #### Approach
-Topic modeling is a statistical analysis technique often used for automatic identification of topics in large collections of documents. A topic model determines which topics each document refers to and which terms describe each topic. Thus, a topic model defines topics that are contained in the collection of text documents. In modeling objectives, this step also helps in data labeling needs using the topics generated across each set of similar documents.
-
-We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python. 
-
 
 #### Insights
 
@@ -125,9 +120,11 @@ We will be using a modified version of F1-score. This is because in our case we 
 
 Having examined the resulting metrics, we get -
 
-Tk-instruct small: 
-**Avg f1-score - 67.5%**
-**Avg Exact match score - 51.8%**
+
+<img src="https://user-images.githubusercontent.com/65465058/205745072-bc75dd79-3d66-4054-9c60-2a8c1a43b9f8.jpeg" width="500">
+
+
+
 
 From these results, it can be observed that a respectable F1 score has been obtained. This implies that our predictions are quite close to some of the True Answers. The results also suggest that there is an exact match found between the predictions and the ground truth to a certain extent. However, we can explore the potential for enhancing these scores by increasing the complexity of the model (using Tk-instruct base).
 
