@@ -117,6 +117,8 @@ The starting point of the workflow involved making a word cloud to visually see 
 For any modeling exercise, it is important for the textual data to be clean and of relevant input type to get the required results. Hence,we performed some pre-processing steps on the clinical notes before proceeding with the LDA topic model.
 These steps involved tokenization and removal of stop words from the patient history notes. This was followed by creating a dictionary of  tokens from the data and created a corpus of words in the text.
 
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/a44ad0bf4df13f7b9b7298774ba019938ffad93e/Pictures/id2freq.png" width="200">
+
 3. LDA Model
 
 
