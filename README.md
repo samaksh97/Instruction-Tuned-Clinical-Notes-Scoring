@@ -112,6 +112,7 @@ Our focus in achieving this task is to use LDA or Latent Dirichlet Allocation. L
 We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python.
 
 We followed the steps below to analyze our clinical notes corpus:
+
 **1. Exploratory Data Analysis:**
 
 Exploratory Data Analysis (EDA) refers to the process of performing initial explorations on data in order to uncover patterns, detect anomalies, test hypotheses and to check postulates using evaluation statistics and visualizations.
