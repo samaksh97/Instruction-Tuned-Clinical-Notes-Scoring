@@ -130,10 +130,12 @@ Gensim creates a unique id for each word in the document. Its mapping of word_id
 
 Once the tokenized object is converted into a corpus and a dictionary, we can proceed with the model training. The objective of topic modeling is to infer insights from the various topics entailed in data. Each topic is a combination of keywords, and each keyword contributes a certain weightage to the topic.
 
-We tried to come up with the optimal values of the model hyperparameters to be able to capture the topic probabilities in the documents. We chose the number of topics as 12 that gave us the best results. 
+We tried to come up with the optimal values of the model hyperparameters to be able to capture the topic probabilities in the documents. We chose the number of topics as 12, with a chunk size of 50 (number of documents in each pass) and passes as 15.
 
 
 #### Visualisation and Insights
+
+
 
 <img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/69980cec5591464633e04ee13d799219354e4a54/Pictures/LDA%20Word%20Cloud.png" width="500">
 
