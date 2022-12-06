@@ -206,6 +206,8 @@ We use the 'C_v' measure for coherence which is based on a sliding window, one-s
 <img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/21ce40a21d24490d6204c3125761939db9bec0ec/Pictures/Coherence_Plot.png" width="500">
 
 
+Through the above plots we see that the perplexity scores have a slow decline with the number
+
 ## Potential Results and Discussions:
 As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score and Exact Match score to evaluate the overlap of the predicted phrase spans with the span of the labels. As it can be seen in the table above, TK-instruct base model being a bigger model with 220 million parameters is better able to extract relevant phrases on mild fine tuning when compared to the TK-instruct small model.
 
