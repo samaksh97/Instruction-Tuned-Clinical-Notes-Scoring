@@ -112,7 +112,7 @@ Our focus in achieving this task is to use LDA or Latent Dirichlet Allocation. L
 We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python.
 
 We followed the steps below to analyze our clinical notes corpus:
-1. Exploratory Data Analysis:
+**1. Exploratory Data Analysis:**
 
 Exploratory Data Analysis (EDA) refers to the process of performing initial explorations on data in order to uncover patterns, detect anomalies, test hypotheses and to check postulates using evaluation statistics and visualizations.
 
@@ -122,7 +122,7 @@ To begin with, we require a word cloud (a visualization of the information prese
 
 The results obtained imply  higher measures of popularity associated with words such as “sexually active” and “chest pain.” We can also observe that the popularities of “ROS negative” and “drug use” are lesser in comparison with the words mentioned earlier. In this way, insights regarding the weightage and frequency of words can be drawn in comparison with other words from the data subset.
 
-2. Data Preprocessing:
+**2. Data Preprocessing**
 
 For any modeling exercise, it is important for the textual data to be clean and of relevant input type to get the required results. Hence,we performed some pre-processing steps on the clinical notes before proceeding with the LDA topic model.
 
@@ -134,7 +134,7 @@ Gensim creates a unique id for each word in the document. Its mapping of word_id
 
 \[(0, 1), (1, 1), (2, 1), (3, 1), (4, 2), (5, 1), (6, 1), (7, 1), (8, 1), (9, 1), (10, 3), (11, 2), (12, 1), (13, 1), (14, 1), (15, 1), (16, 1), (17, 1), (18, 1), (19, 2), (20, 1), (21, 1), (22, 1), (23, 3), (24, 1), (25, 1), (26, 1), (27, 1), (28, 1), (29, 1)]
 
-3. LDA Model
+**3. LDA Model**
 
 Once the textual data is transformed into a format that will serve as an input for training the LDA model, we can begin by tokenizing the text and removing stopwords. Tokenization is the process of breaking a stream of textual data into words, terms, sentences, symbols, or some other meaningful elements called tokens and  stop words are a set of commonly used words in any language. NLP uses stop words to value significant words and turn a blind eye to insignificant words. 
 
