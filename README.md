@@ -130,7 +130,10 @@ Gensim creates a unique id for each word in the document. Its mapping of word_id
 
 The above list of tuples for each note is the pre-processed input that is fed into the LDA model. Once the tokenized object is converted into a corpus and a dictionary, we can proceed with the model training. The objective of topic modeling is to infer insights from the various topics entailed in data. In order to achieve this, the number of topics are allocated corresponding values. Following some trials with this number, we have chosen this value to be 10. In this case, each topic is a combination of keywords, and each keyword contributes a certain weightage to the topic.
 
-#### Insights
+#### Visualisation and Insights
+
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/15b2b0657a8cf617b11407a1121ae2140ce27d10/Pictures/LDA_Visualisation_Intro.png" width="500">
+
 
 
 
