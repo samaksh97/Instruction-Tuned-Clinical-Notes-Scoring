@@ -135,9 +135,13 @@ We tried to come up with the optimal values of the model hyperparameters to be a
 
 #### Visualisation and Insights
 
-<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/15b2b0657a8cf617b11407a1121ae2140ce27d10/Pictures/LDA_Visualisation_Intro.png" width="500">
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/69980cec5591464633e04ee13d799219354e4a54/Pictures/LDA%20Word%20Cloud.png" width="500">
 
 <img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/7a036236bf683da221ee6ddea26bb037d72bf6a9/Pictures/Top5_LDA_Output.png" width="500">
+
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/15b2b0657a8cf617b11407a1121ae2140ce27d10/Pictures/LDA_Visualisation_Intro.png" width="500">
+
+
 
 
 
