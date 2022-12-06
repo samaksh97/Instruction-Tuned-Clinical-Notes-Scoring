@@ -155,9 +155,9 @@ In order to better understand and interpret the individual topics, we can manual
 
 For instance -
 
-<img src="https://user-images.githubusercontent.com/114270661/205795257-cc9f7e32-1278-4833-b345-e9c2314cdf04.png" width="500">
+<img width="1209" alt="LDA Results 4" src="https://user-images.githubusercontent.com/114270661/205815039-db3ae315-a86d-4df8-aa14-bc7b04e41265.png">
 
-The results obtained in the illustrated plot suggest that patients who have asthma and use an inhaler are more likely to complain of chest pains. This suggests that these features can contribute to providing meaningful information when used in tandem with each other.
+The results obtained in the illustrated plot seems to suggest that patients who use marijuana and tylenol tend to expeirnce head aches upong bending over. This suggests that these features can contribute to providing meaningful information when used in tandem with each other.
 
 In this way, topic modeling can serve as a means of extracting meaningful information from textual data and support the insights derived from additional analysis obtained from using supervised models. 
 
