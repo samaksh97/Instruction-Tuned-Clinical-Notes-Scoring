@@ -152,17 +152,17 @@ Having obtained the trained model, we can visualize our findings to aid the proc
 
 We can see the first 5 topics that we obtained for the trained model:
 
-<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/55f62fa87a8bd5fb823ef5589dfe64de9b25fdbb/Pictures/final_top5_prob.png" width="1000">
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/55f62fa87a8bd5fb823ef5589dfe64de9b25fdbb/Pictures/final_top5_prob.png" width="800">
 
 The coefficients with keywords above correspond to the weightage contributed by the word to that topic.
 
-<img src="https://user-images.githubusercontent.com/114270661/205795018-638d17e2-a70e-4d19-bf38-d1ab7c60dc74.png" width="1000">
+<img src="https://user-images.githubusercontent.com/114270661/205795018-638d17e2-a70e-4d19-bf38-d1ab7c60dc74.png" width="800">
 
 In order to better understand and interpret the individual topics, we can manually select each topic to view its top most frequent and/or “relevant” terms. This can help in attempting to assign a human interpretable name or “meaning” to each topic. Additionally, exploring the Intertopic Distance Plot can help you learn about how topics relate to each other, including potential higher-level structure between groups of topics.
 
 For instance -
 
-<img width="1000" alt="LDA Results 4" src="https://user-images.githubusercontent.com/114270661/205815039-db3ae315-a86d-4df8-aa14-bc7b04e41265.png">
+<img width="800" alt="LDA Results 4" src="https://user-images.githubusercontent.com/114270661/205815039-db3ae315-a86d-4df8-aa14-bc7b04e41265.png">
 
 The results obtained in the illustrated plot seems to suggest that patients who use marijuana and tylenol tend to expeirnce head aches upong bending over. This suggests that these features can contribute to providing meaningful information when used in tandem with each other.
 
