@@ -149,6 +149,12 @@ In this case, each topic is a combination of keywords, and each keyword contribu
 
 Having obtained the trained model, we can visualize our findings to aid the process of interpretation -
 
+We can see the first 5 topics that we obtained for the trained model:
+
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/55f62fa87a8bd5fb823ef5589dfe64de9b25fdbb/Pictures/final_top5_prob.png" width="500">
+
+The coefficients with keywords above correspond to the weightage contributed by the word to that topic.
+
 <img src="https://user-images.githubusercontent.com/114270661/205795018-638d17e2-a70e-4d19-bf38-d1ab7c60dc74.png" width="500">
 
 In order to better understand and interpret the individual topics, we can manually select each topic to view its top most frequent and/or “relevant” terms. This can help in attempting to assign a human interpretable name or “meaning” to each topic. Additionally, exploring the Intertopic Distance Plot can help you learn about how topics relate to each other, including potential higher-level structure between groups of topics.
@@ -160,13 +166,6 @@ For instance -
 The results obtained in the illustrated plot seems to suggest that patients who use marijuana and tylenol tend to expeirnce head aches upong bending over. This suggests that these features can contribute to providing meaningful information when used in tandem with each other.
 
 In this way, topic modeling can serve as a means of extracting meaningful information from textual data and support the insights derived from additional analysis obtained from using supervised models. 
-
-<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/55f62fa87a8bd5fb823ef5589dfe64de9b25fdbb/Pictures/final_top5_prob.png" width="500">
-
-<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/15b2b0657a8cf617b11407a1121ae2140ce27d10/Pictures/LDA_Visualisation_Intro.png" width="500">
-
-
-
 
 
 
@@ -195,6 +194,17 @@ Having examined the resulting metrics, we get -
 From these results, it can be observed that a respectable F1 score has been obtained. This implies that our predictions are quite close to some of the True Answers. The results also suggest that there is an exact match found between the predictions and the ground truth to a certain extent. However, we can explore the potential for enhancing these scores by increasing the complexity of the model (using Tk-instruct base).
 
 ### Topic Model Evaluation:
+
+In order to select the optimal number of topics, we evaluate our model on different values of our parameters using **Perplexity** and **Coherence** scores.
+
+Iterating through the different range of topic values, we plot the perplexity scores and coherence scores, then finding the sweet spot betweeen the two metrics. Perplexity score is a measure of how surprised a model is when it comes to new data. Coherence score directly translates to human interpretability. Higher the coherence score, the better whereas we require a low perplexity score. 
+
+We use the 'C_v' measure for coherence which is based on a sliding window, one-set segmentation of the top words and an indirect confirmation measure that uses normalized pointwise mutual information (NPMI) and the cosine similarity.
+
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/21ce40a21d24490d6204c3125761939db9bec0ec/Pictures/Perplexity_Plot.png" width="500">
+
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/21ce40a21d24490d6204c3125761939db9bec0ec/Pictures/Coherence_Plot.png" width="500">
+
 
 ## Potential Results and Discussions:
 As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score and Exact Match score to evaluate the overlap of the predicted phrase spans with the span of the labels. As it can be seen in the table above, TK-instruct base model being a bigger model with 220 million parameters is better able to extract relevant phrases on mild fine tuning when compared to the TK-instruct small model.
