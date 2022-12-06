@@ -120,6 +120,8 @@ To begin with, we require a word cloud (a visualization of the information prese
 
 <img src="https://user-images.githubusercontent.com/114270661/205794571-45939bd8-6242-4c53-acfe-08ec46a5a21b.png" width="500">
 
+The results obtained imply  higher measures of popularity associated with words such as “sexually active” and “chest pain.” We can also observe that the popularities of “ROS negative” and “drug use” are lesser in comparison with the words mentioned earlier. In this way, insights regarding the weightage and frequency of words can be drawn in comparison with other words from the data subset.
+
 2. Data Preprocessing:
 
 For any modeling exercise, it is important for the textual data to be clean and of relevant input type to get the required results. Hence,we performed some pre-processing steps on the clinical notes before proceeding with the LDA topic model.
