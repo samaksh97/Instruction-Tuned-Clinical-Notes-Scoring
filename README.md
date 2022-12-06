@@ -140,7 +140,7 @@ Once the textual data is transformed into a format that will serve as an input f
 
 Once the tokenized object is converted into a corpus and a dictionary, we can proceed with the model training. The objective of topic modeling is to infer insights from the various topics entailed in data. In order to achieve this, the number of topics are allocated corresponding values. 
 
-We tried to come up with the optimal values of the model hyperparameters to be able to capture the topic probabilities in the documents. We chose the number of topics as 12, with a chunk size of 50 (number of documents in each pass) and passes as 15.
+We tried to come up with the optimal values of the model hyperparameters to be able to capture the topic probabilities in the documents. We chose the number of topics as 7, with a chunk size of 50 (number of documents in each pass) and passes as 15.
 
 In this case, each topic is a combination of keywords, and each keyword contributes a certain weightage to the topic.
 
