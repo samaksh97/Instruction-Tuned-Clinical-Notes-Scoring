@@ -105,14 +105,20 @@ In the supervised learning approach discussed above, we deal with the patient hi
 
 #### Approach
 
-Topic modeling is a statistical analysis technique often used for automatic identification of topics in large collections of documents. A topic model determines which topics each document refers to and which terms describe each topic. Thus, a topic model defines topics that are contained in the collection of text documents. In modeling objectives, this step also helps in data labeling needs using the topics generated across each set of similar documents.
+Topic Modeling is one way to perform EDA on textual data and derive fruitful insights about the data. The main purpose of this unsupervised statistical modeling algorithm is to understand the topics in input data and those topics help to analyze the context of the articles or documents. Additionally, this course of action will make use of the topics generated to assist with labeling the data in the subsequent steps of processing similar documents.
+
+Our focus in achieving this task is to use LDA or Latent Dirichlet Allocation. Latent Dirichlet Allocation is an unsupervised approach that identifies unobserved groups from a set of observations and helps us understand the presence of similar occurrences in the data. Treating the documents as a bag of words, the model assumes that the documents (statements) are composed of words that aid the process of topic recognition. Analogous documents are then mapped to the inventory  of topics chosen by creating an association between each word in the document and the various topics. The objective of executing this step is to leverage the imaginary topics in substantially capturing the words existing in the documents.
 
 We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python.
 
 We followed the steps below to analyze our clinical notes corpus:
 1. Exploratory Data Analysis:
 
-The starting point of the workflow involved making a word cloud to visually see what the most common words are in our texts and also to get a sense of the extent to which data pre-processing is required.
+Exploratory Data Analysis (EDA) refers to the process of performing initial explorations on data in order to uncover patterns, detect anomalies, test hypotheses and to check postulates using evaluation statistics and visualizations.
+
+To begin with, we require a word cloud (a visualization of the information present in the data). The model uses textual data to achieve this. As a result of this, the popularity of prominent words and phrases are made evident where the sizes and weights of the words are positively associated with their popularities. It also helps us get a sense of the extent to which data pre-processing is required.
+
+<img src="https://user-images.githubusercontent.com/114270661/205794571-45939bd8-6242-4c53-acfe-08ec46a5a21b.png" width="500">
 
 2. Data Preprocessing:
 
