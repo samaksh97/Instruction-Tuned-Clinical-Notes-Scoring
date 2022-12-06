@@ -156,7 +156,7 @@ We can see the first 5 topics that we obtained for the trained model:
 
 The coefficients with keywords above correspond to the weightage contributed by the word to that topic.
 
-<img src="https://user-images.githubusercontent.com/114270661/205795018-638d17e2-a70e-4d19-bf38-d1ab7c60dc74.png" width="500">
+<img src="https://user-images.githubusercontent.com/114270661/205795018-638d17e2-a70e-4d19-bf38-d1ab7c60dc74.png" width="1209">
 
 In order to better understand and interpret the individual topics, we can manually select each topic to view its top most frequent and/or “relevant” terms. This can help in attempting to assign a human interpretable name or “meaning” to each topic. Additionally, exploring the Intertopic Distance Plot can help you learn about how topics relate to each other, including potential higher-level structure between groups of topics.
 
