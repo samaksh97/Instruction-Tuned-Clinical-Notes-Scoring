@@ -134,13 +134,30 @@ Gensim creates a unique id for each word in the document. Its mapping of word_id
 
 3. LDA Model
 
-Once the tokenized object is converted into a corpus and a dictionary, we can proceed with the model training. The objective of topic modeling is to infer insights from the various topics entailed in data. Each topic is a combination of keywords, and each keyword contributes a certain weightage to the topic.
+Once the textual data is transformed into a format that will serve as an input for training the LDA model, we can begin by tokenizing the text and removing stopwords. Tokenization is the process of breaking a stream of textual data into words, terms, sentences, symbols, or some other meaningful elements called tokens and  stop words are a set of commonly used words in any language. NLP uses stop words to value significant words and turn a blind eye to insignificant words. 
+
+Once the tokenized object is converted into a corpus and a dictionary, we can proceed with the model training. The objective of topic modeling is to infer insights from the various topics entailed in data. In order to achieve this, the number of topics are allocated corresponding values. 
 
 We tried to come up with the optimal values of the model hyperparameters to be able to capture the topic probabilities in the documents. We chose the number of topics as 12, with a chunk size of 50 (number of documents in each pass) and passes as 15.
+
+In this case, each topic is a combination of keywords, and each keyword contributes a certain weightage to the topic.
 
 
 #### Visualisation and Insights
 
+Having obtained the trained model, we can visualize our findings to aid the process of interpretation -
+
+<img src="https://user-images.githubusercontent.com/114270661/205795018-638d17e2-a70e-4d19-bf38-d1ab7c60dc74.png" width="500">
+
+In order to better understand and interpret the individual topics, we can manually select each topic to view its top most frequent and/or “relevant” terms. This can help in attempting to assign a human interpretable name or “meaning” to each topic. Additionally, exploring the Intertopic Distance Plot can help you learn about how topics relate to each other, including potential higher-level structure between groups of topics.
+
+For instance -
+
+<img src="https://user-images.githubusercontent.com/114270661/205795257-cc9f7e32-1278-4833-b345-e9c2314cdf04.png" width="500">
+
+The results obtained in the illustrated plot suggest that patients who have asthma and use an inhaler are more likely to complain of chest pains. This suggests that these features can contribute to providing meaningful information when used in tandem with each other.
+
+In this way, topic modeling can serve as a means of extracting meaningful information from textual data and support the insights derived from additional analysis obtained from using supervised models. 
 
 
 <img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/69980cec5591464633e04ee13d799219354e4a54/Pictures/LDA%20Word%20Cloud.png" width="500">
