@@ -1,0 +1,21 @@
+## Use this command to run the fine tune script
+
+python run_model.py \
+--model_name_or_path "t5-small" \
+    --cache_dir "/data/data/sverma324/natural_instructions/scripts/cache" \
+    --do_train true --do_eval true --do_predict true \
+    --train_file "/data/data/sverma324/natural_instructions/train.csv" \
+    --validation_file "/data/data/sverma324/natural_instructions/val.csv" \
+    --test_file "/data/data/sverma324/natural_instructions/test.csv" \
+    --output_dir /data/data/sverma324/natural_instructions/scripts/output/ \
+    --per_device_train_batch_size="1" \
+    --per_device_eval_batch_size="1" \
+    --gradient_accumulation_steps="2"\
+    --max_source_length 1024 \
+    --max_target_length 128 \
+    --generation_max_length 128 \
+    --learning_rate 5e-05 \
+    --num_train_epochs 2 \
+    --warmup_steps 0 \
+    --predict_with_generate \
+    --save_strategy=no
