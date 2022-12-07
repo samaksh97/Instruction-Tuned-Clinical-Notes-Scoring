@@ -34,8 +34,6 @@ Many techniques have been employed to tackle this problem statement. One such pa
 
 2. <b>Instruction based fine tuning - </b>Recent works in prompting techniques<sup>[1][2]</sup> have explored multi-task instruction-based fine tuning. They demonstrate that instruction tuned models have a great ability to generalize and can perform arduous generative tasks with ease. Using that idea as an inspiration we propose instruction based fine-tuning. 
 
-Recently introduced instruction--tuned models have the potential to significantly outperform task-specific language models (without instruction), but their effect has not yet been systematically studied in the healthcare domain. 
-
 The dataset presents a corpus of 43,985 clinical patient notes (PNs) written by 35,156 examinees during the high-stakes USMLE® Step 2 Clinical Skills examination.
 
 
@@ -44,7 +42,7 @@ The dataset presents a corpus of 43,985 clinical patient notes (PNs) written by 
 
 USMLE® Step 2 Clinical Skills examination is one of the most prestigious and rigorous medical licensure exams for medical professionals. The exam required test-takers to interact with Standardized Patients (people trained to portray specific clinical cases) and write a patient note. Trained physician raters later scored patient notes with rubrics that outlined each case’s important concepts (referred to as features). 
 
-The goal of the project is to extract substrings from the patient notes that are semantically closer to the feature at hand using an instruction-based learning of a pre-trained language model. From a project point of view, our goal is to study the different settings of instructional learning tasks (Instruction, Instruction+1 static example, Instruction + randomly sampled examples from a static pool) and compare results to identify optimal performance for our problem statement.
+The goal of the project is to extract substrings from the patient notes that are semantically closer to the feature at hand using an instruction-based learning of a pre-trained language model. From a project point of view, our goal is to study the instructional learning task ( Instruction+1 static example) on Large Language Models of different sizes and compare results to identify optimal performance for our problem statement.
 
 
 ## Data Definition
@@ -100,16 +98,15 @@ As stated in the data processing section, we have currently used a static exampl
 #### Background and Objective:
 Medical Texts often contain a large amount of information pertaining to patient history, dated information, diagnosis and treatment records which are of high importance in decision making for doctors and other stakeholders in the healthcare ecosystem.
 
-In the supervised learning approach discussed above, we deal with the patient history notes and automatically extract features using large language models. However, we can also often gain some useful insights from such data while solving the main objective which we focus on in this part of the project. We leverage an unsupervised technique based on Topic modeling, Latent Dirichlet allocation to analyze and compare the content of clinical notes.
+In the supervised learning approach discussed above, we deal with the patient history notes and automatically extract features using large language models. However, we can also often gain some useful insights from such data while solving the main objective which we focus on in this part of the project. We leverage an unsupervised technique based on Latent Dirichlet allocation-based Topic modeling to analyze and compare the content of clinical notes.
 
 
 #### Approach
 
-Topic Modeling is one way to perform EDA on textual data and derive fruitful insights about the data. The main purpose of this unsupervised statistical modeling algorithm is to understand the topics in input data and those topics help to analyze the context of the articles or documents. Additionally, this course of action will make use of the topics generated to assist with labeling the data in the subsequent steps of processing similar documents.
+Topic Modeling is one way to perform EDA on textual data and derive relevant insights. The main purpose of this unsupervised statistical modeling algorithm is to understand the topics in input data and those topics help to analyze the context of the articles or documents. Additionally, this course of action will make use of the topics generated to assist with labeling the data in the subsequent steps of processing similar documents. Although Topic Modeling is not relevant to our task, it would be of key importance for downstream tasks such as clustering patients with similar health problems, semi-supervised classification tasks,etc.
 
 Our focus in achieving this task is to use LDA or Latent Dirichlet Allocation. Latent Dirichlet Allocation is an unsupervised approach that identifies unobserved groups from a set of observations and helps us understand the presence of similar occurrences in the data. Treating the documents as a bag of words, the model assumes that the documents (statements) are composed of words that aid the process of topic recognition. Analogous documents are then mapped to the inventory  of topics chosen by creating an association between each word in the document and the various topics. The objective of executing this step is to leverage the imaginary topics in substantially capturing the words existing in the documents.
 
-We used two main methods to do our analysis, word cloud to visually understand the most commonly occurring clinical words across patient history texts and the LDA model for which we leveraged the Gensim library in Python.
 
 We followed the steps below to analyze our clinical notes corpus:
 
@@ -121,13 +118,13 @@ To begin with, we require a word cloud (a visualization of the information prese
 
 <img src="https://user-images.githubusercontent.com/114270661/205794571-45939bd8-6242-4c53-acfe-08ec46a5a21b.png" width="500">
 
-The results obtained imply  higher measures of popularity associated with words such as “sexually active” and “chest pain.” We can also observe that the popularities of “ROS negative” and “drug use” are lesser in comparison with the words mentioned earlier. In this way, insights regarding the weightage and frequency of words can be drawn in comparison with other words from the data subset.
+The results obtained imply  higher measures of popularity associated with words such as “sexually active” and “chest pain.” We can also observe that the popularities of “ROS negative” and “drug use” are lesser in comparison with the words mentioned earlier. In our particular example, we know that majority of the patients that we are dealing with suffere from problems like chest pain, and are sexually active (reflecting a younger demographic).
 
 **2. Data Preprocessing**
 
 For any modeling exercise, it is important for the textual data to be clean and of relevant input type to get the required results. Hence,we performed some pre-processing steps on the clinical notes before proceeding with the LDA topic model.
 
-These steps involved tokenization and removal of stop words from the patient history notes. This was followed by creating a dictionary of  tokens from the data and a corpus of words in the text, using which we also calculated the term document frequency.
+These steps involved tokenization and removal of stop words from the patient history notes. This was followed by creating a dictionary of tokens from the data and a corpus of words in the text, using which we also calculated the term document frequency.
 
 Gensim creates a unique id for each word in the document. Its mapping of word_id and word_frequency. Below is an example of how we assign the frequency to the unique id of each word in every patient note along with the corresponding words mapped to the IDs in this example:
 
