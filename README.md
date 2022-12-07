@@ -59,9 +59,9 @@ Feature: A clinically relevant concept. A rubric describes the key concepts rele
 
 ## Data Processing
 We used the following data preprocessing techniques
-1. Created Input text using Patient Note and Feature
-2. Appended an Example to pass in  along with an instruction (See Below)  
-3. Added “No text found” for instances where feature was not found in Patient Note
+1. Created Input text using Patient Notes and Feature
+2. Appended an Example to pass in along with an instruction (See Below)  
+3. Added “No text found” for instances where the feature was not found in the Patient Note
 4. We randomly split the dataset (14,300 Notes) into train and test splits as follows:
     80% - Training Set (11,400 Notes)
     20% - Testing Set (2,860 Notes)
@@ -73,15 +73,12 @@ We used the following data preprocessing techniques
 ## Methods
 
 When working on a specific domain, it is ideal to pre-train the LLM on rare words first and then perform the domain-specific task. At the outset, we began scoping different LLM models. From the plethora of options that HuggingFace provides with, we played around with the inferencing APIs of different models like BERT,bioBERT and T5-variants. We realise the diverse variants of T5-based models offer specific LLMs that are tuned for instruction-based tasks and are thus bound to perform marginally better than their counterparts. Thus, for this project, we plan to test two variants of the Tk-INstruct model - 
-1. [Tk-Instruct Small](https://huggingface.co/allenai/tk-instruct-small-def-pos) - this is the smallest T5-based Instruction tuned model. The t5-small LLM has been tuned with intructional dataset consisting of a definition and 2 positive examples to create this fine-tuned LLM version. The model consists of 60million parameters and we chose to start with fine-tuning this first and then moving on to a bigger LLM for comparative analysis and benchmarking purposes.
+1. [Tk-Instruct Small](https://huggingface.co/allenai/tk-instruct-small-def-pos) - this is the smallest T5-based Instruction tuned model. The t5-small LLM has been tuned with an instructional dataset consisting of a definition and 2 positive examples to create this fine-tuned LLM version. The model consists of 60 million parameters and we chose to start with fine-tuning this first and then moving on to a bigger LLM for comparative analysis and benchmarking purposes.
 2. [Tk-Instruct Base](https://huggingface.co/allenai/tk-instruct-base-def-pos) - Similar to the above model, the only difference is that this model has been trained on t5-base model which is a 220 million parameter model.
 
-Our inital plan was to  pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup> so that it learns the rare biomedical terms. The Masked Language Modelling (MLM) technique underlying pretrianing a large language model is a semi-supervised approach that would help the model learn the domain-specific vocabulary. 
-
-
+Our initial plan was to  pre-train the instruction-tuned [Tk-Instruct LLM](https://huggingface.co/allenai/tk-instruct-3b-def-pos-neg)<sup>[2]</sup> so that it learns the rare biomedical terms. The Masked Language Modelling (MLM) technique underlying pre-training a large language model is a semi-supervised approach that would help the model learn the domain-specific vocabulary. 
 
 <img src="https://user-images.githubusercontent.com/65465058/194685081-51c1b248-27c9-4441-9b89-8eb3ee671fa3.png" width="500">
-
 
 Unfortunately, due to compute resource constraints, we are unable to proceed with this task. However, we do fine-tune it using Instructional prompts composed of a definition and a positive example. As the LLM is itself a base T5 model tuned specifically for inteructional tasks, we hypothesise that passing simple elaborate instructions should work well for our use case even without the pretraining step. Also, since the output is an extraction task and not a generation task, the model should be able to extract relevant output phrases from the patient notes even without learing the domain-specific medical vocabulary.
 
@@ -90,8 +87,8 @@ We have thus trained the T5 model with ~13000 instances. The parameters we have 
 <img src="https://user-images.githubusercontent.com/65465058/201564479-de72c6e0-15b1-4227-a0fc-c4726d074fde.png" width="500">
 
 
-
 As stated in the data processing section, we have currently used a static example for all training inputs. In addition to the outputs of the model, we can extract the weights of the final layer that have been updated while training which can be reused.
+
 
 ### 2. Unsupervised Analysis - Topic Modeling
 
@@ -171,10 +168,10 @@ In this way, topic modeling can serve as a means of extracting meaningful inform
 
 ### Large Language Model Evaluation:
 
-As our task can be framed as a span detection task - where we extract a span of words from the patient note as output - we decided to use 2 primary metrics for our task.The Exact Match metric measures the percentage of predictions that match any one of the ground truth answers exactly. The F1 score metric is a loser metric measures the average overlap between the prediction and ground truth answer. These scores are calculated on every prompt-response pair. Overall EM and F1 scores are computed for a model by averaging over the individual example scores. 
+As our task can be framed as a span detection task - where we extract a span of words from the patient note as output - we decided to use 2 primary metrics for our task. The Exact Match metric measures the percentage of predictions that match any one of the ground truth answers exactly. The F1 score metric is a loser metric that measures the average overlap between the prediction and ground truth answer. These scores are calculated on every prompt-response pair. Overall EM and F1 scores are computed for a model by averaging over the individual example scores. 
 
 **Exact Match**:
-For each prompt-response pair, the value of Exact Match metric will be 1 when the characters of the model’s prediction and that of the ground truth match exactly. This metric is comparatively more conservative; if a match is not found, the value is assigned to be 0. A difference in one character would result in a score of 0. 
+For each prompt-response pair, the value of the Exact Match metric will be 1 when the characters of the model’s prediction and that of the ground truth match exactly. This metric is comparatively more conservative; if a match is not found, the value is assigned to be 0. A difference in one character would result in a score of 0.
 
 **F1 Score**:
 This metric is utilized when equal weightage is assigned to precision and recall. In this case, an attempt is made to find a match between the words in the prediction and the ground truth. 
@@ -183,11 +180,7 @@ We will be using a modified version of F1-score. This is because in our case we 
 
 Having examined the resulting metrics, we get -
 
-
 <img src="https://user-images.githubusercontent.com/65465058/205745072-bc75dd79-3d66-4054-9c60-2a8c1a43b9f8.jpeg" width="500">
-
-
-
 
 From these results, it can be observed that a respectable F1 score has been obtained. This implies that our predictions are quite close to some of the True Answers. The results also suggest that there is an exact match found between the predictions and the ground truth to a certain extent. However, we can explore the potential for enhancing these scores by increasing the complexity of the model (using Tk-instruct base).
 
@@ -195,7 +188,9 @@ From these results, it can be observed that a respectable F1 score has been obta
 
 In order to select the optimal number of topics, we evaluate our model on different values of our parameters using **Perplexity** and **Coherence** scores.
 
-Iterating through the different range of topic values, we plot the perplexity scores and coherence scores, then finding the sweet spot betweeen the two metrics. Perplexity score is a measure of how surprised a model is when it comes to new data. Coherence score directly translates to human interpretability. Higher the coherence score, the better whereas we require a low perplexity score. 
+
+Iterating through the different range of topic values, we plot the perplexity scores and coherence scores, then find the sweet spot between the two metrics. The perplexity score is a measure of how surprised a model is when it comes to new data. The coherence score directly translates to human interpretability. The higher the coherence score, the better whereas we require a low perplexity score. 
+
 
 We use the 'C_v' measure for coherence which is based on a sliding window, one-set segmentation of the top words and an indirect confirmation measure that uses normalized pointwise mutual information (NPMI) and the cosine similarity.
 
@@ -204,11 +199,10 @@ We use the 'C_v' measure for coherence which is based on a sliding window, one-s
 <img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/21ce40a21d24490d6204c3125761939db9bec0ec/Pictures/Coherence_Plot.png" width="500">
 
 
-Through the above plots we see that the perplexity scores have a slow decline with the number of topics and there is a sudden decline after 15 topics. The coherence plot shows an overall decline with few spikes. The selection for the number of topics as **7** is based on the value of coherence score of **0.595** and a perplexity score of **-7.38**. We desire a higher value of coherence rather than giving more focus to the perplexity score. The current scores indicate that our model is doing a fine job in identifying keywords and topics across the notes. However, there is scope of improvement in these metrics which we can achieve using advanced data pre-processing techniques and also we can explore advanced unsupervised approaches to deal with clinical notes.
+Through the above plots, we see that the perplexity scores have a slow decline with the number of topics and there is a sudden decline after 15 topics. The coherence plot shows an overall decline with few spikes. The selection for the number of topics as **7** is based on the value of coherence score of **0.595** and a perplexity score of **-7.38**. We desire a higher value of coherence rather than giving more focus to the perplexity score. The current scores indicate that our model is doing a fine job of identifying keywords and topics across the notes. However, there is the scope of improvement in these metrics which we can achieve using advanced data pre-processing techniques and also we can explore advanced unsupervised approaches to deal with clinical notes.
 
 ## Potential Results and Discussions:
-As our aim is to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score and Exact Match score to evaluate the overlap of the predicted phrase spans with the span of the labels. As it can be seen in the table above, TK-instruct base model being a bigger model with 220 million parameters is better able to extract relevant phrases on mild fine tuning when compared to the TK-instruct small model.
-
+As we aim to identify semantically similar phrases from the patient notes that match the medically termed features, we plan to use a micro-averaged F1 score and Exact Match score to evaluate the overlap of the predicted phrase spans with the span of the labels. As can be seen in the table above, the TK-instruct base model being a bigger model with 220 million parameters is better able to extract relevant phrases on mild fine-tuning when compared to the TK-instruct small model.
 
 ## References
 1. Mihir Parmar, Swaroop Mishra, Mirali Purohit, Man Luo, Murad Mohammad, and Chitta Baral. 2022. In-BoXBART: Get Instructions into Biomedical Multi-Task Learning. In Findings of the Association for Computational Linguistics: NAACL 2022, pages 112–128, Seattle, United States. Association for Computational Linguistics.
