@@ -6,8 +6,8 @@ p{color:Black !important;}
 
 CS 7641 Team 1
 
-Mid Term Project
-Shreyas Verma, Saksham Arora, Mehul Soni, Samaksh Gulati, Sindhu Raghuram Panyam
+## FINAL PROJECT REPORT
+\Shreyas Verma, Saksham Arora, Mehul Soni, Samaksh Gulati, Sindhu Raghuram Panyam
 
 [Gantt Chart](https://docs.google.com/spreadsheets/d/127ndniyh15_XrMLIP_JnUK5plsJSzKy0/edit?usp=sharing&ouid=105287803295740692275&rtpof=true&sd=true)
 
