@@ -195,9 +195,10 @@ Iterating through the different range of topic values, we plot the perplexity sc
 We use the 'C_v' measure for coherence which is based on a sliding window, one-set segmentation of the top words and an indirect confirmation measure that uses normalized pointwise mutual information (NPMI) and the cosine similarity.
 
 
-<img src="https://user-images.githubusercontent.com/65465058/206097312-7409559e-c46e-4f27-b402-9bb20aba9c7e.png width="500">
 
-<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/issues/14#issue-1481019375"="500">
+<img src="https://user-images.githubusercontent.com/65465058/206097312-7409559e-c46e-4f27-b402-9bb20aba9c7e.png" width="500">
+
+<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/issues/14#issue-1481019375" width="500">
 
 
 Through the above plots, we see that the perplexity scores have a slow decline with the number of topics and there is a sudden decline after 15 topics. The coherence plot shows an overall decline with few spikes. The selection for the number of topics as **7** is based on the value of coherence score of **0.595** and a perplexity score of **-7.38**. We desire a higher value of coherence rather than giving more focus to the perplexity score. The current scores indicate that our model is doing a fine job of identifying keywords and topics across the notes. However, there is the scope of improvement in these metrics which we can achieve using advanced data pre-processing techniques and also we can explore advanced unsupervised approaches to deal with clinical notes.
