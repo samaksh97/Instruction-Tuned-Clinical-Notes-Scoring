@@ -146,7 +146,7 @@ Having obtained the trained model, we can visualize our findings to aid the proc
 
 We can see the first 5 topics that we obtained for the trained model:
 
-<img src="https://github.com/samaksh97/Instruction-Tuned-Clinical-Notes-Scoring/blob/55f62fa87a8bd5fb823ef5589dfe64de9b25fdbb/Pictures/final_top5_prob.png" width="800">
+<img src="https://user-images.githubusercontent.com/65465058/206098711-84f4b3a7-0ee6-423e-b1d9-6a79d44ff139.png" width="800">
 
 The coefficients with keywords above correspond to the weightage contributed by the word to that topic.
 
